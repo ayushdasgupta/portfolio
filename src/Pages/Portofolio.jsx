@@ -12,7 +12,6 @@ import CardProject from "../components/CardProject";
 import TechStackIcon from "../components/TechStackIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Certificate from "../components/Certificate";
 import { Code, Award, Boxes } from "lucide-react";
 
 const ToggleButton = ({ onClick, isShowingMore }) => (
