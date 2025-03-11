@@ -1,0 +1,112 @@
+{
+    "project": [
+        {
+            "Title": "Connect",
+            "Description": "Connect — a social media platform designed to bring people together in a meaningful way.The idea behind Connect was to create a space where users can not only share content but also engage in conversations and build connections seamlessly. Users can register, upload posts, comment on them, follow each other, and search for others. It's a community-driven platform, where interaction is at the forefront.",
+            "Link": "https://connect-ashy-two.vercel.app",
+            "Img": "https://res.cloudinary.com/diaw2ssyd/image/upload/v1737396423/Portfolio/project_5_jgkjx5.png",
+            "id": 1,
+            "Features": ["Using Cloudinary, Latency reduction by 30-60%, load time improve upto 25%","Full authentication and authorization are implemented with the help of JWT to ensure secure and efficient user sessions","For smooth, seamless and responsive experience, we utilize React Reusable Component for rendering.","Improve the speed of the API, we use caching with the help of node cache around 40%."],
+            "TechStack": [
+                "MongoDB",
+                "Express",
+                "ReactJS",
+                "NodeJS"
+            ],
+            "Github":"https://github.com/ayushdasgupta/connect"
+        },
+        {
+            "Title": "Photography",
+            "Description": "Landing Page",
+            "Link": "https://ayushdasgupta.github.io/frontend-1",
+            "Img": "https://res.cloudinary.com/diaw2ssyd/image/upload/v1737396429/Portfolio/project_4_t1nx92.png",
+            "id": 2
+        },
+        {
+            "Title": "Builders",
+            "Description": "Landing Page",
+            "Link": "https://ayushdasgupta.github.io/frontend-2",
+            "Img": "https://res.cloudinary.com/diaw2ssyd/image/upload/v1737396427/Portfolio/project_2_awgs11.png",
+            "id": 3
+        },
+        {
+            "Title": "Eyeglasses",
+            "Description": "Landing Page",
+            "Link": "https://ayushdasgupta.github.io/frontend-3/",
+            "Img": "https://res.cloudinary.com/diaw2ssyd/image/upload/v1737396429/Portfolio/project_3_vwpvks.png",
+            "id": 4
+        },
+        {
+            "Title": "Cinematography",
+            "Description": "Dasgupta",
+            "Link": "apc.com",
+            "Img": "https://res.cloudinary.com/diaw2ssyd/image/upload/v1737396424/Portfolio/project_1_hg6vkt.png",
+            "id": 5
+        }
+    ],
+    "techStacks": [
+        {
+            "icon": "next.svg",
+            "language": "NextJS"
+        },
+        {
+            "icon": "typescript.svg",
+            "language": "TypeScript"
+        },
+        {
+            "icon": "mongodb.svg",
+            "language": "Mongodb"
+        },
+        {
+            "icon": "prisma.svg",
+            "language": "Prisma"
+        },
+        {
+            "icon": "ex.svg",
+            "language": "Express"
+        },
+        {
+            "icon": "reactjs.svg",
+            "language": "ReactJS"
+        },
+        {
+            "icon": "nodejs.svg",
+            "language": "Node JS"
+        },
+        {
+            "icon": "javascript.svg",
+            "language": "JavaScript"
+        },
+        {
+            "icon": "html.svg",
+            "language": "HTML"
+        },
+        {
+            "icon": "css.svg",
+            "language": "CSS"
+        },
+        
+        {
+            "icon": "tailwind.svg",
+            "language": "Tailwind CSS"
+        },
+        
+        {
+            "icon": "git.svg",
+            "language": "git"
+        },
+        
+        {
+            "icon": "docker.svg",
+            "language": "Docker"
+        },
+        {
+            "icon": "vite.svg",
+            "language": "Vite"
+        },
+        {
+            "icon": "vercel.svg",
+            "language": "Vercel"
+        }
+    ]
+}
