@@ -21,7 +21,7 @@ const StatusBadge = memo(() => (
 
 const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
-    <h1 className="text-5xl sm:text-6xl md:text-6xl md:text-6xl xl:text-7xl font-bold tracking-tight">
+    <h1 className="text-5xl sm:text-6xl md:text-6xl font-bold tracking-tight">
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
@@ -160,86 +160,91 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
-      <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
-        <div className="container mx-auto px-[5%] sm:px-6 md:px-[0%] min-h-screen">
-          <div className="flex flex-col md:flex-row items-center justify-center h-screen md:justify-between gap-0 sm:gap-12 md:gap-20">
-            {/* Left Column */}
-            <div className="w-full md:w-1/2 space-y-6 sm:space-y-8 text-left md:text-left order-1 md:order-1 md:mt-0"
-              data-aos="fade-right"
-              data-aos-delay="200">
-              <div className="space-y-4 sm:space-y-6">
-                <StatusBadge />
-                <MainTitle />
+  <div
+    className={`z-10 transition-all w-full duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+  >
+    <div className="container mx-auto px-4 sm:px-6 min-h-screen">
+      <div className="flex flex-col md:flex-row items-center justify-center h-screen md:justify-between gap-6 sm:gap-12 md:gap-20">
+        {/* Left Column */}
+        <div
+          className="w-full md:w-1/2 space-y-6 text-left"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
+          <div className="space-y-4">
+            <StatusBadge />
+            <MainTitle />
 
-                {/* Typing Effect */}
-                <div className="h-8 flex items-center" data-aos="fade-up" data-aos-delay="800">
-                  <span className="text-xl md:text-2xl bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent font-light">
-                    {text}
-                  </span>
-                  <span className="w-[3px] h-6 bg-gradient-to-t from-[#6366f1] to-[#a855f7] ml-1 animate-blink"></span>
-                </div>
-
-                {/* Description */}
-                <p className="text-base md:text-md text-gray-400 max-w-xl leading-relaxed font-light"
-                  data-aos="fade-up"
-                  data-aos-delay="1000">
-                  I am Full stack Developer from West Bengal, Kolkata with 3 Years of Exprience.
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-3 justify-start" data-aos="fade-up" data-aos-delay="1200">
-                  {TECH_STACK.map((tech, index) => (
-                    <TechStack key={index} tech={tech} />
-                  ))}
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-row gap-3 w-full justify-start" data-aos="fade-up" data-aos-delay="1400">
-                  <CTAButton href="#Portofolio" text="Projects" icon={ExternalLink} />
-                  <CTAButton href="#Contact" text="Contact" icon={Mail} />
-                </div>
-
-                {/* Social Links */}
-                <div className="hidden sm:flex gap-4 justify-start" data-aos="fade-up" data-aos-delay="1600">
-                  {SOCIAL_LINKS.map((social, index) => (
-                    <SocialLink key={index} {...social} />
-                  ))}
-                </div>
-              </div>
+            {/* Typing Effect */}
+            <div
+              className="h-8 flex items-center"
+              data-aos="fade-up"
+              data-aos-delay="800"
+            >
+              <span className="text-xl md:text-2xl bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent font-light">
+                {text}
+              </span>
             </div>
 
-            {/* Right Column - Optimized Lottie Animation */}
-            <div className="w-full py-[10%] sm:py-0 md:w-1/2 h-auto md:h-[600px] xl:h-[750px] relative flex items-center justify-center order-2 md:order-2 mt-8 md:mt-0"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              data-aos="fade-left"
-              data-aos-delay="600">
-              <div className="relative w-full opacity-90">
-                <div className={`absolute inset-0 bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 rounded-3xl blur-3xl transition-all duration-700 ease-in-out ${
-                  isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
-                }`}>
-                </div>
+            {/* Description */}
+            <p
+              className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
+              I am a Full Stack Developer from West Bengal, Kolkata with 3 years of experience.
+            </p>
 
-                <div className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
-                  isHovering ? "scale-105" : "scale-100"
-                }`}>
-                  <DotLottieReact {...lottieOptions} />
-                </div>
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="1200">
+              {TECH_STACK.map((tech, index) => (
+                <TechStack key={index} tech={tech} />
+              ))}
+            </div>
 
-                <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${
-                  isHovering ? "opacity-50" : "opacity-20"
-                }`}>
-                  <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-indigo-500/10 to-purple-500/10 blur-3xl animate-[pulse_6s_cubic-bezier(0.4,0,0.6,1)_infinite] transition-all duration-700 ${
-                    isHovering ? "scale-110" : "scale-100"
-                  }`}>
-                  </div>
-                </div>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-row gap-3" data-aos="fade-up" data-aos-delay="1400">
+              <CTAButton href="#Portfolio" text="Projects" icon={ExternalLink} />
+              <CTAButton href="#Contact" text="Contact" icon={Mail} />
+            </div>
+
+            {/* Social Links */}
+            <div className="hidden sm:flex gap-4" data-aos="fade-up" data-aos-delay="1600">
+              {SOCIAL_LINKS.map((social, index) => (
+                <SocialLink key={index} {...social} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - Optimized Lottie Animation */}
+        <div
+          className="w-full sm:py-0 md:w-1/2 h-auto md:h-[600px] xl:h-[750px] flex items-center justify-center relative"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          data-aos="fade-left"
+          data-aos-delay="600"
+        >
+          <div className="relative w-full opacity-90">
+            <div
+              className={`absolute inset-0 bg-gradient-to-r from-[#6366f1]/20 to-[#a855f7]/20 rounded-3xl blur-2xl transition-all duration-700 ease-in-out ${
+                isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
+              }`}
+            ></div>
+
+            <div
+              className={`relative z-10 w-full transform transition-transform duration-500 ${
+                isHovering ? "scale-105" : "scale-100"
+              }`}
+            >
+              <DotLottieReact {...lottieOptions} />
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
   );
 };
 
