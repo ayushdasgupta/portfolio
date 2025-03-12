@@ -153,8 +153,8 @@ const Home = () => {
     style: { width: "100%", height: "100%" },
     className: `w-full h-full transition-all duration-500 ${
       isHovering 
-        ? "scale-[180%] sm:scale-[160%] md:scale-[150%] md:scale-[145%] rotate-2" 
-        : "scale-[175%] sm:scale-[155%] md:scale-[145%] md:scale-[140%]"
+        ? "sm:scale-[160%] md:scale-[150%] md:scale-[145%] rotate-2" 
+        : "sm:scale-[155%] md:scale-[145%] md:scale-[140%]"
     }`
   };
 
@@ -168,7 +168,7 @@ const Home = () => {
           <div className="w-full md:w-1/2 space-y-6 sm:space-y-8 text-left md:text-left order-1 md:order-1 md:mt-0 flex flex-col items-center md:items-start"
             data-aos="fade-right"
             data-aos-delay="200">
-            <div className="space-y-4 sm:space-y-6">
+            <div className="mx-10 space-y-4 sm:space-y-6">
               <StatusBadge />
               <MainTitle />
   
@@ -219,9 +219,9 @@ const Home = () => {
                 isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
               }`}></div>
   
-              <div className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
+              <div className={`relative overflow-hidden z-10 w-full opacity-90 transform transition-transform duration-500 ${
                 isHovering ? "scale-105" : "scale-100"
-              }`}>
+              }`}> 
                 <DotLottieReact {...lottieOptions} />
               </div>
   
