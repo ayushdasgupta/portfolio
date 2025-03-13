@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'
 
 // Memoized Components
 const StatusBadge = memo(() => (
-  <div className="inline-block animate-float md:mx-0" data-aos="zoom-in" data-aos-delay="400">
+  <div className="hidden sm:inline-block animate-float md:mx-0" data-aos="zoom-in" data-aos-delay="400">
     <div className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
@@ -21,7 +21,7 @@ const StatusBadge = memo(() => (
 
 const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
-    <h1 className="text-5xl sm:text-6xl md:text-6xl font-bold tracking-tight">
+    <h1 className="text-4xl text-center sm:text-left sm:text-6xl md:text-6xl font-bold tracking-tight">
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
@@ -40,7 +40,7 @@ const MainTitle = memo(() => (
 ));
 
 const TechStack = memo(({ tech }) => (
-  <div className="px-4 py-2 hidden sm:block rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 hover:bg-white/10 transition-colors">
+  <div className="px-4 py-2 block rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 hover:bg-white/10 transition-colors">
     {tech}
   </div>
 ));
@@ -78,7 +78,7 @@ const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS = ["Full stack developer", "Backend Developer"];
-const TECH_STACK = ["Express", "Javascript", "Node.js", "React"];
+const TECH_STACK = ["Nextjs","Typescript","Express", "MongoDB", "Node.js", "React"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/ayushdasgupta" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/ayush-dasgupta-809569228" },
@@ -165,7 +165,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-center min-h-screen md:h-auto gap-6 sm:gap-12 md:gap-20">
   
           {/* Left Column */}
-          <div className="w-full md:w-1/2 space-y-6 sm:space-y-8 text-left md:text-left order-1 md:order-1 md:mt-0 flex flex-col items-center md:items-start"
+          <div className="mt-36 sm:mt-0 w-full md:w-1/2 space-y-6 sm:space-y-8 text-left md:text-left order-1 md:order-1 md:mt-0 flex flex-col items-center md:items-start"
             data-aos="fade-right"
             data-aos-delay="200">
             <div className="mx-10 space-y-4 sm:space-y-6">
@@ -200,7 +200,7 @@ const Home = () => {
               </div>
   
               {/* Social Links */}
-              <div className="hidden sm:flex gap-4 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="1600">
+              <div className="flex gap-4 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="1600">
                 {SOCIAL_LINKS.map((social, index) => (
                   <SocialLink key={index} {...social} />
                 ))}

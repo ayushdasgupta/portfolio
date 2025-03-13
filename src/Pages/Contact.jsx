@@ -6,6 +6,7 @@ import Komentar from "../components/Commentar";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import toast from "react-hot-toast";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -21,63 +22,59 @@ const ContactPage = () => {
     });
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+ 
 
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   try {
+  //     const response = await fetch(import.meta.env.VITE_API_URL, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+  //         name: formData.name,
+  //         email: formData.email,
+  //         message: formData.message,
+  //       }),
+  //     });
+
+  //     const result = await response.json();
+
+  //     if (result.success) {
+  //       toast.success("Message received! We'll get back to you soon.")
+  //       setFormData({ name: "", email: "", message: "" }); // Reset form
+  //     } else {
+  //       alert("Error: " + result.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //     toast.error("Please try again later.")
+  //   }
+
+  //   setIsSubmitting(false);
+  // };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit =(e)=>{
     e.preventDefault();
     setIsSubmitting(true);
+    fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL,{
+      method:"POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body:(`name=${formData.name}}&email=${formData.email}&message=${formData.message}`)
+    }).then(res=>res.text()).then(data=>{
+      toast.success("Message received! We'll get back to you soon.")
+  setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
 
-    Swal.fire({
-      title: 'Sending Message...',
-      html: 'Please wait while we send your message',
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      }
-    });
-
-    try {
-      // Get form data
-      const form = e.target;
-      const formData = new FormData(form);
-
-      // Submit form
-      await form.submit();
-
-      // Show success message
-      Swal.fire({
-        title: 'Success!',
-        text: 'Your message has been sent successfully!',
-        icon: 'success',
-        confirmButtonColor: '#6366f1',
-        timer: 2000,
-        timerProgressBar: true
-      });
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Something went wrong. Please try again later.',
-        icon: 'error',
-        confirmButtonColor: '#6366f1'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+    }).catch(()=>toast.error("Please try again later."))
+  }
+  
   return (
     <>
       <div className="text-center lg:mt-[5%] mt-10 mb-2 sm:px-0 px-[5%]">
@@ -130,22 +127,8 @@ const ContactPage = () => {
               <Share2 className="w-10 h-10 text-[#6366f1] opacity-50" />
             </div>
 
-            <form
-              action="https://formsubmit.co/ekizulfarrachman@gmail.com"
-              method="POST"
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
-
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-
-              <div
-                data-aos="fade-up"
-                data-aos-delay="100"
-                className="relative group"
-              >
-                <User className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="relative group">
                 <input
                   type="text"
                   name="name"
@@ -157,12 +140,8 @@ const ContactPage = () => {
                   required
                 />
               </div>
-              <div
-                data-aos="fade-up"
-                data-aos-delay="200"
-                className="relative group"
-              >
-                <Mail className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+
+              <div className="relative group">
                 <input
                   type="email"
                   name="email"
@@ -174,12 +153,8 @@ const ContactPage = () => {
                   required
                 />
               </div>
-              <div
-                data-aos="fade-up"
-                data-aos-delay="300"
-                className="relative group"
-              >
-                <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+
+              <div className="relative group">
                 <textarea
                   name="message"
                   placeholder="Your Message"
@@ -190,17 +165,16 @@ const ContactPage = () => {
                   required
                 />
               </div>
+
               <button
-                data-aos="fade-up"
-                data-aos-delay="400"
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#6366f1]/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                <Send className="w-5 h-5" />
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
+
 
             <div className="mt-10 pt-6 border-t border-white/10 flex justify-center space-x-6">
               <SocialLinks />
